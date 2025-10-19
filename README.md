@@ -1,36 +1,173 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🧵 Couturly Client – Fashion Platform
 
-## Getting Started
+A modern Next.js fashion platform built using Feature-Sliced Design (FSD) architecture, offering tools for fashion professionals and clients.
 
-First, run the development server:
+🚀 Getting Started
 
-```bash
-npm run dev
-# or
+Run the development server:
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
+in your browser to see the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Start editing the homepage by modifying app/page.tsx. The page auto-updates as you save.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses next/font to optimize and load Geist, a modern font family by Vercel.
 
-## Learn More
+🏗️ Project Structure (FSD Architecture)
+src/
+├── app/ # Next.js app router (routing, layout)
+│ ├── layout.tsx # Root layout with providers
+│ └── page.tsx # Home page
+├── entities/ # Business entities
+│ └── projects/ # Projects domain
+│ ├── api/ # API calls
+│ ├── constants/ # Constants
+│ ├── helpers/ # Utilities
+│ ├── interfaces/ # TypeScript types
+│ └── index.ts # Public API
+├── features/ # Business features
+│ └── project-form/ # Project creation/editing feature
+│ ├── helpers/ # Utilities
+│ ├── interfaces/ # Types
+│ ├── validation/ # Validation schemas
+│ ├── project-form.tsx # Main form component
+│ └── index.ts # Public API
+├── shared/ # Shared app resources
+│ ├── api/ # API config/clients
+│ ├── assets/ # Icons, images
+│ ├── config/ # App settings
+│ ├── consts/ # Global constants
+│ ├── hooks/ # Custom React hooks
+│ ├── interfaces/ # Shared types
+│ ├── lib/ # Utilities/helpers
+│ ├── providers/ # React context providers
+│ ├── ui/ # Reusable UI components
+│ └── utils/ # Utility functions
+└── widgets/ # Self-contained UI widgets
 
-To learn more about Next.js, take a look at the following resources:
+📦 Dependencies
+Core Framework
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js 15.5.6 – React framework with App Router
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+React 19.1.0 – UI library
 
-## Deploy on Vercel
+TypeScript – Type safety
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+UI & Styling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Tailwind CSS v4 – Utility-first CSS framework
+
+shadcn/ui – Pre-built UI components
+
+Radix UI – Headless UI primitives
+
+Components: Avatar, Checkbox, Dropdown, Popover, Select, Switch, Tabs
+
+Lucide React – Icon library
+
+Class Variance Authority – Component variant handling
+
+State Management & Forms
+
+React Query (@tanstack) – Server state management
+
+Formik – Form state handling
+
+Yup – Validation schemas
+
+Utilities
+
+Axios – HTTP client
+
+date-fns, dayjs – Date handling
+
+React Dropzone – File upload
+
+React Day Picker – Date picker
+
+React Toastify – Toast notifications
+
+clsx, tailwind-merge – Class utilities
+
+Development Tools
+
+Husky – Git hooks
+
+Lint Staged – Pre-commit linting
+
+Commitlint – Conventional commits
+
+ESLint – Code linting
+
+Prettier – Code formatting
+
+🛠️ Available Scripts
+yarn start:dev # Start development server
+yarn build # Build for production
+yarn start # Start production server
+yarn lint # Run ESLint
+yarn lint:fix # Fix ESLint issues
+yarn type-check # Run TypeScript checks
+
+🔧 Code Quality
+
+This project uses:
+
+Husky – Git hooks (pre-commit, pre-push)
+
+ESLint + Prettier – Consistent code style
+
+Conventional Commits – Standardized commit messages
+
+TypeScript – Type-safe development
+
+🎨 Design System
+
+Built using:
+
+Tailwind CSS – For styling
+
+shadcn/ui – Reusable components
+
+Radix UI – Primitives
+
+Custom design tokens and theming
+
+📱 Features
+
+Modern React with Next.js App Router
+
+Feature-Sliced Design architecture
+
+Responsive layout
+
+Form handling with validation
+
+File upload support
+
+Date picker integration
+
+Server state with React Query
+
+Type-safe with TypeScript
+
+🚀 Deployment
+
+The easiest way to deploy a Next.js app is using the Vercel Platform (creators of Next.js).
+
+See Next.js Deployment Docs
+for more info.
+
+📚 Learn More
+
+Next.js Documentation
+– Learn about features and API
+
+Learn Next.js
+– Interactive learning tutorial
+
+Next.js GitHub Repo
+– Contribute or leave feedback
