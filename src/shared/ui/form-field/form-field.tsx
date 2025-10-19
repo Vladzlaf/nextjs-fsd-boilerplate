@@ -102,7 +102,7 @@ export const FormField = (props: FormFieldProps) => {
           className={cn(
             "w-full, h-full rounded-[20px]",
             disabledClass,
-            hasError && "border border-red-500"
+            hasError && "border border-red-500",
           )}
         >
           {props.children}
@@ -122,11 +122,11 @@ export const FormField = (props: FormFieldProps) => {
               {...props.uploaderProps}
               className={cn(
                 hasError && "border border-red-500 rounded-[12px]",
-                props.uploaderProps?.className
+                props.uploaderProps?.className,
               )}
               dropzoneClassName={cn(
                 props.uploaderProps?.dropzoneClassName,
-                hasError && "border border-red-500"
+                hasError && "border border-red-500",
               )}
             />
           </div>
@@ -144,7 +144,7 @@ export const FormField = (props: FormFieldProps) => {
                 "h-[50px] w-full rounded-[12px] border-0 bg-[#F6F2EE] text-[12px] text-text-primary",
                 hasError && "border border-red-500",
                 disabledClass,
-                props.className
+                props.className,
               )}
             >
               <SelectValue
@@ -174,7 +174,7 @@ export const FormField = (props: FormFieldProps) => {
               "w-full rounded-[16px] border-0 bg-[#F6F2EE] text-[12px] h-[172px] text-text-primary",
               hasError && "border border-red-500",
               disabledClass,
-              props.className
+              props.className,
             )}
             value={props.value}
             onChange={(e) => !props.disabled && props.onChange(e.target.value)}
@@ -191,7 +191,7 @@ export const FormField = (props: FormFieldProps) => {
               "h-[50px] w-full rounded-[12px] border-0 bg-[#F6F2EE] text-[12px] text-text-primary",
               hasError && "border border-red-500",
               disabledClass,
-              props.className
+              props.className,
             )}
             onChange={(e) =>
               !props.disabled && props.onChange(e.target.files?.[0])
@@ -211,7 +211,7 @@ export const FormField = (props: FormFieldProps) => {
               "h-[50px] w-full rounded-[12px] border-0 bg-[#F6F2EE] text-[12px] text-text-primary",
               hasError && "border border-red-500",
               disabledClass,
-              props.className
+              props.className,
             )}
             disabled={props.disabled}
             {...props.multiSelectProps}
@@ -227,13 +227,13 @@ export const FormField = (props: FormFieldProps) => {
               "h-[50px] w-full rounded-[12px] border-0 bg-[#F6F2EE] text-[12px] text-text-primary",
               hasError && "border border-red-500",
               disabledClass,
-              props.className
+              props.className,
             )}
             value={props.value}
             onChange={(e) =>
               !props.disabled &&
               props.onChange(
-                e.target.value ? Number(e.target.value) : undefined
+                e.target.value ? Number(e.target.value) : undefined,
               )
             }
             placeholder={props.placeholder}
@@ -255,7 +255,7 @@ export const FormField = (props: FormFieldProps) => {
             className={cn(
               hasError && "w-fit p-1 rounded-[12px] border border-red-500",
               disabledClass,
-              props.className
+              props.className,
             )}
             disabled={props.disabled}
           />
@@ -271,7 +271,7 @@ export const FormField = (props: FormFieldProps) => {
               "h-[50px] w-full rounded-[12px] border-0 bg-[#F6F2EE] text-[12px] text-text-primary",
               hasError && "border border-red-500",
               disabledClass,
-              props.className
+              props.className,
             )}
             value={props.value}
             onChange={(e) => !props.disabled && props.onChange(e.target.value)}
@@ -290,7 +290,7 @@ export const FormField = (props: FormFieldProps) => {
                 "h-[50px] w-full rounded-[12px] border-0 bg-[#F6F2EE] text-[12px] text-text-primary pr-10",
                 hasError && "border border-red-500",
                 disabledClass,
-                props.className
+                props.className,
               )}
               value={props.value}
               onChange={(e) =>
@@ -329,8 +329,8 @@ export const FormField = (props: FormFieldProps) => {
           props.value instanceof Date
             ? props.value.getFullYear().toString()
             : typeof props.value === "string"
-            ? props.value
-            : "";
+              ? props.value
+              : "";
 
         return (
           <Select
@@ -345,7 +345,7 @@ export const FormField = (props: FormFieldProps) => {
                 "h-[50px] w-full rounded-[12px] border-0 bg-[#F6F2EE] text-[12px] text-text-primary",
                 hasError && "border border-red-500",
                 disabledClass,
-                props.className
+                props.className,
               )}
             >
               <SelectValue placeholder={props.placeholder || "Select year"} />
@@ -373,7 +373,7 @@ export const FormField = (props: FormFieldProps) => {
                     !props.value && "text-text-primary",
                     hasError && "border border-red-500",
                     disabledClass,
-                    props.className
+                    props.className,
                   )}
                   disabled={props.disabled}
                 >
@@ -396,21 +396,14 @@ export const FormField = (props: FormFieldProps) => {
                   mode="single"
                   className="w-full"
                   selected={props.value ? new Date(props.value) : undefined}
-                  onSelect={(date: {
-                    setHours: (
-                      arg0: number,
-                      arg1: number,
-                      arg2: number,
-                      arg3: number
-                    ) => void;
-                    toISOString: () => any;
-                  }) => {
+                  onSelect={(date: Date | undefined) => {
                     if (date && !props.disabled) {
                       date.setHours(12, 0, 0, 0);
                       props.onChange(date.toISOString());
                     }
                   }}
                   initialFocus
+                  required={false}
                 />
               </PopoverContent>
             </Popover>
@@ -423,14 +416,14 @@ export const FormField = (props: FormFieldProps) => {
     <div
       className={cn(
         "flex flex-col  w-full col-span-2",
-        props.type === "uploader" ? "w-fit" : "w-full"
+        props.type === "uploader" ? "w-fit" : "w-full",
       )}
     >
       {props.label && (
         <Label
           className={cn(
             "text-text-primary text-[12px] font-normal leading-5 mb-1",
-            props.disabled && "opacity-50"
+            props.disabled && "opacity-50",
           )}
         >
           {props.label}
