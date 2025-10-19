@@ -1,12 +1,8 @@
-🧵 Couturly Client – Fashion Platform
-
-A modern Next.js fashion platform built using Feature-Sliced Design (FSD) architecture, offering tools for fashion professionals and clients.
-
 🚀 Getting Started
 
 Run the development server:
 
-yarn dev
+yarn start:dev
 
 Open http://localhost:3000
 in your browser to see the app.
